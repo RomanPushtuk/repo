@@ -7,6 +7,18 @@
 
 const path = require('path');
 
+const extraNodeModules = {
+  modules: path.resolve(path.join(__dirname, '../../components')),
+};
+
+const nodeModulesPaths = [
+  path.resolve(path.join(__dirname, './node_modules')),
+];
+
+const watchFolders = [
+  path.resolve(path.join(__dirname, '../../components')),
+];
+
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -16,8 +28,9 @@ module.exports = {
       },
     }),
   },
-  watchFolders: [
-    // Relative path to packages directory
-    path.resolve(`${__dirname}/../..`),
-  ],
+  resolver: {
+    extraNodeModules,
+    nodeModulesPaths,
+  },
+  watchFolders,
 };

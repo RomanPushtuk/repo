@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@repo/auth-module": "^1.0.0",
+    "@repo/api-module": "file:../../components/api-module",
+    "@repo/auth-module": "file:../../components/auth-module",
     "react": "17.0.2",
     "react-native": "0.67.4"
   },

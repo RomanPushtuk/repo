@@ -8,6 +8,7 @@
  * @format
  */
 
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -17,7 +18,6 @@ import {
   View,
   useColorScheme,
 } from 'react-native';
-import React from 'react';
 
 import {
   Colors,
@@ -27,9 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { login } from '@repo/auth-module';
-
-login();
+import { apiInstance } from '@repo/api-module';
 
 const styles = StyleSheet.create({
   highlight: {
@@ -81,6 +79,12 @@ const Section: React.FC<{
 };
 
 const App = () => {
+  useEffect(() => {
+    apiInstance.get('/')
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }, []);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {

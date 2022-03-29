@@ -1,0 +1,17 @@
+{
+  "name": "@repo/api-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "fetch-jsonp": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/fetch-jsonp": "^1.1.0"
+  }
+}

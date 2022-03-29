@@ -1,12 +1,16 @@
 import './App.css';
-import React from 'react';
-import { login } from '@repo/auth-module';
+import React, { useEffect } from 'react';
+import { apiInstance } from '@repo/api-module';
 
 import logo from './logo.svg';
 
-login();
+const App: React.FC = () => {
+  useEffect(() => {
+    apiInstance.get('')
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }, []);
 
-function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -25,6 +29,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;

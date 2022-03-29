@@ -17,10 +17,8 @@ module.exports = {
         'import/no-unresolved': [0],
         'no-shadow': 'off',
         'no-undef': 'off',
-        'sort-keys': ['error', 'asc'],
-        'sort-imports': ['error', {
-          allowSeparatedGroups: true,
-        }],
+        'sort-keys': [0],
+        'sort-imports': [0],
       },
     },
   ],
