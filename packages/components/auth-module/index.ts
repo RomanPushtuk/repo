@@ -1,3 +1,5 @@
-const login = () => { console.log('hello world') };
+const login = () => {
+  console.log('hello world');
+};
 
 export { login };

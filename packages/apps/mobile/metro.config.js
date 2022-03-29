@@ -17,7 +17,7 @@ module.exports = {
     }),
   },
   watchFolders: [
-    //Relative path to packages directory
-    path.resolve(__dirname + '/../..')
-  ]
+    // Relative path to packages directory
+    path.resolve(`${__dirname}/../..`),
+  ],
 };

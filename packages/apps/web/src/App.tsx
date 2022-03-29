@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import React from 'react';
 import { login } from '@repo/auth-module';
+
+import logo from './logo.svg';
 
 login();
 

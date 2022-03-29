@@ -4,7 +4,7 @@ module.exports = {
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      excludedFiles: ['*-test.tsx'],
+      excludedFiles: ['*.test.tsx'],
     },
   ],
 };
