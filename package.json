@@ -1,7 +1,21 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "start_web": "env-cmd -f ./.env lerna run --scope @repo/web start",
+    "start-mobile-server": "lerna run --scope @repo/mobile start",
+    "start-android": "lerna run --scope @repo/mobile android",
+    "start-ios": "lerna run --scope @repo/mobile ios",
+    "start-tests": "lerna run test"
+  },
+  "workspaces": {
+    "packages": [
+      "./packages/apps/*",
+      "./packages/components/*"
+    ]
+  },
   "devDependencies": {
+    "@types/node": "^17.0.23",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "eslint": "^8.12.0",
@@ -10,6 +24,12 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "lerna": "^4.0.0"
+    "install": "^0.13.0",
+    "lerna": "^4.0.0",
+    "npm": "^8.5.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "env-cmd": "^10.1.0"
   }
 }

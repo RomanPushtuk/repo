@@ -1,18 +1,19 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://api.weather.yandex.ru/v2';
-const URL = '/informers';
+const BASE_URL = String(process.env.BASE_URL);
+const API_KEY = String(process.env.API_KEY);
+
 const DEFAULT_SEARCH_PARAMS = {
   lat: '55.75396',
   lon: '37.620393',
   lang: 'en_US',
 };
 const REQUEST_HEADERS = {
-  'X-Yandex-API-Key': '97dc3ae8-ebd0-4a15-800f-2ca4f439395d',
+  'X-Yandex-API-Key': API_KEY,
 };
 
 const apiInstance = axios.create({
-  baseURL: `${BASE_URL}${URL}`,
+  baseURL: BASE_URL,
   timeout: 1000,
   headers: REQUEST_HEADERS,
   params: DEFAULT_SEARCH_PARAMS,

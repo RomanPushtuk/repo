@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "private": true,
   "scripts": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "directory": "packages/components/auth-module"
+  }
 }

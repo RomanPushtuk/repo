@@ -1,6 +1,6 @@
 {
   "name": "@repo/mobile",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -10,8 +10,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@repo/api-module": "file:../../components/api-module",
-    "@repo/auth-module": "file:../../components/auth-module",
+    "@repo/api-module": "1.0.0",
+    "@repo/auth-module": "1.0.0",
     "react": "17.0.2",
     "react-native": "0.67.4"
   },
