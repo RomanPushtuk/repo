@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-const BASE_URL = String(process.env.BASE_URL);
-const API_KEY = String(process.env.API_KEY);
+console.log(process.env);
 
+const BASE_URL = String(process.env.REACT_APP_BASE_URL);
+const API_KEY = String(process.env.REACT_APP_API_KEY);
+
+console.log(BASE_URL, API_KEY);
 const DEFAULT_SEARCH_PARAMS = {
   lat: '55.75396',
   lon: '37.620393',

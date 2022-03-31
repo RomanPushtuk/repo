@@ -8,7 +8,7 @@
   "author": "",
   "license": "ISC",
   "repository": {
-    "directory": "packages/components/api-module"
+    "directory": "./packages/components/api-module"
   },
   "dependencies": {
     "axios": "^0.26.1"

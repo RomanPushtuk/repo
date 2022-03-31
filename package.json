@@ -2,17 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start_web": "env-cmd -f ./.env lerna run --scope @repo/web start",
-    "start-mobile-server": "lerna run --scope @repo/mobile start",
-    "start-android": "lerna run --scope @repo/mobile android",
-    "start-ios": "lerna run --scope @repo/mobile ios",
+    "start_web": "env-cmd -f ./.env lerna run --scope=@repo/web start",
+    "start-mobile-server": "lerna run --scope=@repo/mobile start",
+    "start-android": "lerna run --scope=@repo/mobile android",
+    "start-ios": "lerna run --scope=@repo/mobile ios",
     "start-tests": "lerna run test"
-  },
-  "workspaces": {
-    "packages": [
-      "./packages/apps/*",
-      "./packages/components/*"
-    ]
   },
   "devDependencies": {
     "@types/node": "^17.0.23",
@@ -29,7 +23,6 @@
     "npm": "^8.5.5"
   },
   "dependencies": {
-    "dotenv": "^16.0.0",
     "env-cmd": "^10.1.0"
   }
 }
