@@ -2,13 +2,24 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start_web": "env-cmd -f ./.env lerna run --scope=@repo/web start",
-    "start-mobile-server": "lerna run --scope=@repo/mobile start",
+    "bootstrap": "npx lerna clean --yes && npx rimraf node_modules && npx lerna bootstrap",
+    "start_web": "cp .env packages/apps/web && lerna run --scope=@repo/web start",
+    "start-mobile-server": "cp .env packages/apps/mobile && lerna run --scope=@repo/mobile start",
     "start-android": "lerna run --scope=@repo/mobile android",
     "start-ios": "lerna run --scope=@repo/mobile ios",
     "start-tests": "lerna run test"
   },
+  "workspaces": {
+    "packages": [
+      "./packages/*/*"
+    ],
+    "nohoist": [
+      "**/react-native",
+      "**/react-native/**",
+    ]
+  },
   "devDependencies": {
+    "@babel/runtime": "^7.17.8",
     "@types/node": "^17.0.23",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
