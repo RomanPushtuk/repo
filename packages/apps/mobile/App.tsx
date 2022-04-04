@@ -27,7 +27,30 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { apiInstance } from '@repo/api-module';
+import Config from 'react-native-config';
+
+import { createApi } from '@repo/api-module';
+
+const BASE_URL = String(Config.REACT_APP_BASE_URL);
+const API_KEY = String(Config.REACT_APP_API_KEY);
+
+console.log(BASE_URL, API_KEY);
+
+const DEFAULT_SEARCH_PARAMS = {
+  lat: '55.75396',
+  lon: '37.620393',
+  lang: 'en_US',
+};
+const REQUEST_HEADERS = {
+  'X-Yandex-API-Key': API_KEY,
+};
+
+const apiInstance = createApi({
+  baseURL: BASE_URL,
+  timeout: 1000,
+  headers: REQUEST_HEADERS,
+  params: DEFAULT_SEARCH_PARAMS,
+});
 
 const styles = StyleSheet.create({
   highlight: {

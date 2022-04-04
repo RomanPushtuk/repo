@@ -1,8 +1,28 @@
 import './App.css';
 import React, { useEffect } from 'react';
-import { apiInstance } from '@repo/api-module';
-
+import { createApi } from '@repo/api-module';
 import logo from './logo.svg';
+
+const BASE_URL = String(process.env.REACT_APP_BASE_URL);
+const API_KEY = String(process.env.REACT_APP_API_KEY);
+
+console.log(BASE_URL, API_KEY);
+
+const DEFAULT_SEARCH_PARAMS = {
+  lat: '55.75396',
+  lon: '37.620393',
+  lang: 'en_US',
+};
+const REQUEST_HEADERS = {
+  'X-Yandex-API-Key': API_KEY,
+};
+
+const apiInstance = createApi({
+  baseURL: BASE_URL,
+  timeout: 1000,
+  headers: REQUEST_HEADERS,
+  params: DEFAULT_SEARCH_PARAMS,
+});
 
 const App: React.FC = () => {
   useEffect(() => {
