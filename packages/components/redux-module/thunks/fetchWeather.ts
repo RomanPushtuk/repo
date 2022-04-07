@@ -20,7 +20,10 @@ const api = axios.create({
   params: DEFAULT_SEARCH_PARAMS,
 });
 
-export const fetchWeather = createAsyncThunk('weather/fetchWeather', async () => {
-  const response = await api.get('/');
-  return response.data;
-});
+export const fetchWeather = createAsyncThunk(
+  'weather/fetchWeather',
+  async () => {
+    const response = await api.get('/');
+    return response.data;
+  },
+);

@@ -3,8 +3,8 @@ module.exports = {
   plugins: [],
   overrides: [
     {
-      files: ['*.ts', '*.tsx'],
-      excludedFiles: ['*.test.tsx'],
+      files: ["*.ts", "*.tsx"],
+      excludedFiles: ["*.test.tsx"],
     },
   ],
 };

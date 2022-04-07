@@ -7,7 +7,9 @@
     "start-mobile-server": "cp .env packages/apps/mobile && lerna run --scope=@repo/mobile start",
     "start-android": "lerna run --scope=@repo/mobile android",
     "start-ios": "lerna run --scope=@repo/mobile ios",
-    "start-tests": "lerna run test"
+    "husky-prepare": "husky install",
+    "start-tests": "lerna run test",
+    "fix": "npx eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
   },
   "workspaces": {
     "packages": [
@@ -29,14 +31,17 @@
     "@typescript-eslint/parser": "^5.16.0",
     "eslint": "^8.12.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
     "lerna": "^4.0.0",
-    "npm": "^8.5.5"
+    "npm": "^8.5.5",
+    "prettier": "^2.6.2",
+    "prettier-eslint": "^13.0.0"
   },
-  "dependencies": {
-    "env-cmd": "^10.1.0"
-  }
+  "dependencies": {}
 }

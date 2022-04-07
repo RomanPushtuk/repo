@@ -1,12 +1,12 @@
-import './index.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { webStoreObject } from '@repo/redux-module';
+import { webStoreObject } from "@repo/redux-module";
 // import { createApi } from '@repo/api-module';
 
-import { Provider } from 'react-redux';
-import App from './App';
+import { Provider } from "react-redux";
+import App from "./App";
 
 // import { BASE_URL, DEFAULT_SEARCH_PARAMS, REQUEST_HEADERS } from './configs';
 //
@@ -27,5 +27,5 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById("root")
 );

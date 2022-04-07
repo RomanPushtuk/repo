@@ -1,8 +1,12 @@
 module.exports = {
   root: true,
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'prettier'],
+  extends: [
+    'eslint-config-airbnb',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+  ],
   parser: '@typescript-eslint/parser',
-  extends: ['eslint-config-airbnb', 'plugin:react/recommended'],
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
@@ -19,6 +23,7 @@ module.exports = {
         'no-undef': 'off',
         'sort-keys': [0],
         'sort-imports': [0],
+        'prettier/prettier': 'error',
       },
     },
   ],

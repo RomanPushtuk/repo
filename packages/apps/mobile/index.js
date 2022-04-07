@@ -1,12 +1,12 @@
 import React from 'react';
-import { AppRegistry } from 'react-native';
-import { mobileStoreObject } from '@repo/redux-module';
-import { Provider } from 'react-redux';
+import {AppRegistry} from 'react-native';
+import {mobileStoreObject} from '@repo/redux-module';
+import {Provider} from 'react-redux';
 // import { createApi } from '@repo/api-module';
 // import { BASE_URL, REQUEST_HEADERS, DEFAULT_SEARCH_PARAMS } from './src/configs';
 
 import App from './src/App';
-import { name as appName } from './app.json';
+import {name as appName} from './app.json';
 
 // const apiInstance = createApi({
 //   baseURL: BASE_URL,
@@ -15,7 +15,7 @@ import { name as appName } from './app.json';
 //   params: DEFAULT_SEARCH_PARAMS,
 // });
 
-const { store } = mobileStoreObject;
+const {store} = mobileStoreObject;
 
 console.log(store);
 

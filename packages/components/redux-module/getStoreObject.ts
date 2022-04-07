@@ -1,8 +1,4 @@
-import {
-  applyMiddleware,
-  compose,
-  createStore,
-} from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import { createBlacklistFilter } from 'redux-persist-transform-filter';
 import thunk from 'redux-thunk';
@@ -15,13 +11,13 @@ export const getStoreObject = (
   platformDependentMiddlewares = [],
 ) => {
   // @ts-ignore
-  const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancer =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-  const blackListForSomeIgnoredReducer = createBlacklistFilter('someIgnoredReducer', [
-    'someIgnoredKey',
-    'someIgnoredKey2',
-    'someIgnoredKey3',
-  ]);
+  const blackListForSomeIgnoredReducer = createBlacklistFilter(
+    'someIgnoredReducer',
+    ['someIgnoredKey', 'someIgnoredKey2', 'someIgnoredKey3'],
+  );
 
   const persistConfig = {
     key: 'root',
