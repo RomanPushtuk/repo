@@ -1,0 +1,19 @@
+{
+  "name": "@repo/redux-module",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
+    "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^0.26.1",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
+    "redux-persist-transform-filter": "^0.0.20",
+    "redux-thunk": "^2.4.1"
+  }
+}

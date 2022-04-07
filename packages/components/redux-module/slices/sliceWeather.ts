@@ -1,0 +1,24 @@
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchWeather } from '../thunks/fetchWeather';
+
+export const counterSlice = createSlice({
+  name: 'weather',
+  initialState: {
+    data: null,
+  },
+  reducers: {},
+  extraReducers: {
+    [fetchWeather.pending.type]: () => {},
+    [fetchWeather.fulfilled.type]: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.data = action.payload;
+    },
+    [fetchWeather.rejected.type]: (state) => {
+      // @ts-ignore
+      // eslint-disable-next-line no-param-reassign
+      state.data = { text: "Can't get weather data. Sorry :((" };
+    },
+  },
+});
+
+export default counterSlice.reducer;
