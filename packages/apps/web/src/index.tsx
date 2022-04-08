@@ -2,10 +2,9 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { webStoreObject } from "@repo/redux-module";
+import { webStoreObject, Provider } from "@repo/redux-module";
 // import { createApi } from '@repo/api-module';
 
-import { Provider } from "react-redux";
 import App from "./App";
 
 // import { BASE_URL, DEFAULT_SEARCH_PARAMS, REQUEST_HEADERS } from './configs';

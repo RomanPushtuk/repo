@@ -14,14 +14,6 @@
   "workspaces": {
     "packages": [
       "packages/*/*"
-    ],
-    "nohoist": [
-      "**/react-native",
-      "**/react-native/**",
-      "**/react-native-config",
-      "**/react-native-config/**",
-      "**/react-redux",
-      "**/react-redux/**"
     ]
   },
   "devDependencies": {

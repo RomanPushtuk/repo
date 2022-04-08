@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "@repo/redux-module";
 import { fetchWeather } from "@repo/redux-module/thunks/fetchWeather";
 import { BASE_URL } from "./configs";
 

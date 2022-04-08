@@ -1,7 +1,6 @@
 import React from 'react';
 import {AppRegistry} from 'react-native';
-import {mobileStoreObject} from '@repo/redux-module';
-import {Provider} from 'react-redux';
+import {Provider, mobileStoreObject} from '@repo/redux-module';
 // import { createApi } from '@repo/api-module';
 // import { BASE_URL, REQUEST_HEADERS, DEFAULT_SEARCH_PARAMS } from './src/configs';
 
@@ -16,8 +15,6 @@ import {name as appName} from './app.json';
 // });
 
 const {store} = mobileStoreObject;
-
-console.log(store);
 
 const ConnectAppToRedux = () => (
   <Provider store={store}>

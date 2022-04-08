@@ -1,37 +1,31 @@
-import { applyMiddleware, compose, createStore } from 'redux';
-import { persistReducer, persistStore } from 'redux-persist';
+import { configureStore, MiddlewareArray } from '@reduxjs/toolkit';
+import { persistReducer, persistStore, Storage } from 'redux-persist';
 import { createBlacklistFilter } from 'redux-persist-transform-filter';
 import thunk from 'redux-thunk';
 
-import { getRootReducer } from './rootReducer';
+import { rootReducer, RootState } from './rootReducer';
 
-export const getStoreObject = (
-  persistStorage: any,
-  rootReducer = getRootReducer(),
-  platformDependentMiddlewares = [],
-) => {
-  // @ts-ignore
-  const composeEnhancer =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const blackListForSomeIgnoredReducer = createBlacklistFilter(
+  'someIgnoredReducer',
+  ['someIgnoredKey', 'someIgnoredKey2', 'someIgnoredKey3'],
+);
 
-  const blackListForSomeIgnoredReducer = createBlacklistFilter(
-    'someIgnoredReducer',
-    ['someIgnoredKey', 'someIgnoredKey2', 'someIgnoredKey3'],
-  );
-
+export const getStoreObject = <T extends Storage>(persistStorage: T) => {
   const persistConfig = {
     key: 'root',
     storage: persistStorage,
     transforms: [blackListForSomeIgnoredReducer],
   };
 
-  const persistedReducer = persistReducer(persistConfig, rootReducer);
+  const persistedReducer = persistReducer<RootState>(
+    persistConfig,
+    rootReducer,
+  );
 
-  const middleware = applyMiddleware(...platformDependentMiddlewares, thunk);
-
-  const store = {
-    ...createStore(persistedReducer, composeEnhancer(middleware)),
-  };
+  const store = configureStore({
+    reducer: persistedReducer,
+    middleware: new MiddlewareArray().concat(thunk),
+  });
 
   const persistor = persistStore(store);
 

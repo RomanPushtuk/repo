@@ -1,11 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchWeather } from '../thunks/fetchWeather';
 
+type WeatherState = {
+  data: null | any;
+};
+
+const initialState: WeatherState = {
+  data: null,
+};
+
 export const counterSlice = createSlice({
   name: 'weather',
-  initialState: {
-    data: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: {
     [fetchWeather.pending.type]: () => {},

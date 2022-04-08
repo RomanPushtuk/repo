@@ -1,0 +1,13 @@
+{
+  "name": "@repo/request-module",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@repo/api-module": "1.0.0"
+  }
+}

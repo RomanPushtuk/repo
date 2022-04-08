@@ -1,8 +1,3 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { api } from './createApi';
 
-const createApi = (config: AxiosRequestConfig): AxiosInstance => {
-  const apiInstance = axios.create(config);
-  return apiInstance;
-};
-
-export { createApi };
+export { api };
