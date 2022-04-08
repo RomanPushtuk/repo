@@ -1,9 +1,11 @@
 import { configureStore, MiddlewareArray } from '@reduxjs/toolkit';
 import { persistReducer, persistStore, Storage } from 'redux-persist';
 import { createBlacklistFilter } from 'redux-persist-transform-filter';
+import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
 
 import { rootReducer, RootState } from './rootReducer';
+import { RootSaga } from './sagas/sagaWeather';
 
 const blackListForSomeIgnoredReducer = createBlacklistFilter(
   'someIgnoredReducer',
@@ -22,10 +24,14 @@ export const getStoreObject = <T extends Storage>(persistStorage: T) => {
     rootReducer,
   );
 
+  const sagaMiddleware = createSagaMiddleware();
+
   const store = configureStore({
     reducer: persistedReducer,
-    middleware: new MiddlewareArray().concat(thunk),
+    middleware: new MiddlewareArray().concat(thunk, sagaMiddleware),
   });
+
+  sagaMiddleware.run(RootSaga);
 
   const persistor = persistStore(store);
 

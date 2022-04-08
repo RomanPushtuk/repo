@@ -1,5 +1,5 @@
 import React from 'react';
-import {useDispatch, useSelector} from '@repo/redux-module';
+import {useDispatch, useSelector, pending, RootState} from '@repo/redux-module';
 
 import {
   SafeAreaView,
@@ -11,15 +11,14 @@ import {
 } from 'react-native';
 import {Header} from 'react-native/Libraries/NewAppScreen';
 
-import {fetchWeather} from '@repo/redux-module/thunks/fetchWeather';
 import {BASE_URL} from './configs';
 
 const App = () => {
   const dispatch = useDispatch();
-  const data = useSelector(store => store);
+  const data = useSelector<RootState>(store => store.weather);
 
   const onClick = () => {
-    dispatch(fetchWeather());
+    dispatch(pending());
   };
 
   const stringifyData = JSON.stringify(data, null, ' ');

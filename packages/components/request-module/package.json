@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@repo/api-module": "1.0.0"
+    "@repo/api-module": "1.0.0",
+    "axios": "^0.26.1"
   }
 }

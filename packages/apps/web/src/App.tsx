@@ -1,15 +1,19 @@
 import "./App.css";
 import React from "react";
-import { useDispatch, useSelector } from "@repo/redux-module";
-import { fetchWeather } from "@repo/redux-module/thunks/fetchWeather";
+import {
+  useDispatch,
+  useSelector,
+  pending,
+  RootState,
+} from "@repo/redux-module";
 import { BASE_URL } from "./configs";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
-  const data = useSelector((store) => store);
+  const data = useSelector((store: RootState) => store.weather);
 
   const onClick = () => {
-    dispatch(fetchWeather());
+    dispatch(pending());
   };
 
   const stringifyData = JSON.stringify(data, null, " ");

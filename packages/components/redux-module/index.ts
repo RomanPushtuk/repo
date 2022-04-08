@@ -3,6 +3,8 @@ import { mobileStoreObject } from './mobileStoreObject';
 import { webStoreObject } from './webStoreObject';
 import { RootState } from './rootReducer';
 
+export * from './slices/sliceWeather';
+
 export {
   Provider,
   mobileStoreObject,

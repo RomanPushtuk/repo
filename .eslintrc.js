@@ -23,6 +23,8 @@ module.exports = {
         'no-undef': 'off',
         'sort-keys': [0],
         'sort-imports': [0],
+        'no-param-reassign': [1],
+        'no-use-before-define': [1],
         'prettier/prettier': 'error',
       },
     },
