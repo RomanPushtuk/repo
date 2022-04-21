@@ -1,4 +1,5 @@
 import { configureStore, MiddlewareArray } from '@reduxjs/toolkit';
+import { ApiInstance } from '@repo/api-module';
 import { persistReducer, persistStore, Storage } from 'redux-persist';
 import { createBlacklistFilter } from 'redux-persist-transform-filter';
 import createSagaMiddleware from 'redux-saga';
@@ -12,7 +13,10 @@ const blackListForSomeIgnoredReducer = createBlacklistFilter(
   ['someIgnoredKey', 'someIgnoredKey2', 'someIgnoredKey3'],
 );
 
-export const getStoreObject = <T extends Storage>(persistStorage: T) => {
+export const getStoreObject = <T extends Storage>(
+  api: ApiInstance,
+  persistStorage: T,
+) => {
   const persistConfig = {
     key: 'root',
     storage: persistStorage,
@@ -31,7 +35,7 @@ export const getStoreObject = <T extends Storage>(persistStorage: T) => {
     middleware: new MiddlewareArray().concat(thunk, sagaMiddleware),
   });
 
-  sagaMiddleware.run(RootSaga);
+  sagaMiddleware.run(RootSaga(api));
 
   const persistor = persistStore(store);
 

@@ -11,3 +11,10 @@ export const DEFAULT_SEARCH_PARAMS = {
 export const REQUEST_HEADERS = {
   'X-Yandex-API-Key': API_KEY,
 };
+
+export const config = {
+  baseURL: String(BASE_URL),
+  timeout: 1000,
+  headers: REQUEST_HEADERS,
+  params: DEFAULT_SEARCH_PARAMS,
+};

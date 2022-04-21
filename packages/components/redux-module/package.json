@@ -9,6 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
+    "@repo/api-module": "1.0.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@repo/request-module": "1.0.0",
     "axios": "^0.26.1",
