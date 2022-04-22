@@ -1,40 +1,34 @@
 import React from 'react';
-import {useDispatch, useSelector, pending, RootState} from '@repo/redux-module';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Header} from './components/Header';
+import {Start} from './pages/Start';
+import {Main} from './pages/Main';
+import {Cities} from './pages/Cities';
+import {City} from './pages/City';
 
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  View,
-  Button,
-} from 'react-native';
-import {Header} from 'react-native/Libraries/NewAppScreen';
+export type RootStackParamList = {
+  Start: undefined;
+  Main: undefined;
+};
 
-import {BASE_URL} from './configs';
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const dispatch = useDispatch();
-  const data = useSelector<RootState>(store => store.weather);
-
-  const onClick = () => {
-    dispatch(pending());
-  };
-
-  const stringifyData = JSON.stringify(data, null, ' ');
-
   return (
-    <SafeAreaView>
-      <StatusBar barStyle="light-content" />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <Header />
-        <View>
-          <Button title="Fetch weather" onPress={onClick} />
-          <Text>BASE_URL = {BASE_URL}</Text>
-          <Text>weatherData = {stringifyData}</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Header />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Start"
+          component={Start}
+        />
+        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="Cities" component={Cities} />
+        <Stack.Screen name="City" component={City} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

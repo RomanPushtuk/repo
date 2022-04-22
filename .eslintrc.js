@@ -16,6 +16,7 @@ module.exports = {
         'react/jsx-one-expression-per-line': [0],
         'react/jsx-filename-extension': [0],
         'react/function-component-definition': [0],
+        'react/require-default-props': [0],
         'import/extensions': [0],
         'import/prefer-default-export': [1],
         'import/no-unresolved': [0],
