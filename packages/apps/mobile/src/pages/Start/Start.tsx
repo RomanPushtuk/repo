@@ -18,7 +18,7 @@ export const Start: FC = () => {
       <Button title="Начать" onPress={handlePress} />
       <Button
         title="Пожертвовать на сигареты разработчику"
-        onPress={()=>{}}
+        onPress={() => {}}
       />
     </View>
   );

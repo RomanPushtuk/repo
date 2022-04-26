@@ -1,9 +1,10 @@
-import React, {FC} from 'react';
-import {View} from 'react-native';
+import React, {FC, useEffect} from 'react';
+import {View, FlatList, ListRenderItem} from 'react-native';
 import {useNavigation, CommonActions} from '@react-navigation/native';
-import {ListItem} from '../../components/ListItem';
+import {AnimatedListItem} from '../../components/ListItem/AnimatedListItem';
 
 type ListItemType = {
+  id: number;
   title: string;
   subtitle: string;
   route: string;
@@ -11,16 +12,19 @@ type ListItemType = {
 
 const list: Array<ListItemType> = [
   {
+    id: 0,
     title: 'Погода в городе',
     subtitle: 'Выберете город из списка',
     route: 'Cities',
   },
   {
+    id: 1,
     title: 'Погода по координатам',
     subtitle: 'Укажите координаты и узнайте погоду',
     route: 'Coordinates',
   },
   {
+    id: 2,
     title: 'Геопозиция',
     subtitle: 'Узнать погоду по моему местоположению',
     route: 'Geoposition',
@@ -30,6 +34,8 @@ const list: Array<ListItemType> = [
 export const Main: FC = () => {
   const navigation = useNavigation();
 
+  useEffect(() => {}, []);
+
   const handlePress = (route: string) => () => {
     navigation.dispatch(
       CommonActions.navigate({
@@ -38,16 +44,16 @@ export const Main: FC = () => {
     );
   };
 
-  const renderList = () => {
-    return list.map((item, index) => (
-      <ListItem
-        key={index}
-        onPress={handlePress(item.route)}
-        title={item.title}
-        subtitle={item.subtitle}
-      />
-    ));
-  };
+  const renderItem: ListRenderItem<ListItemType> = ({item}) => (
+    <AnimatedListItem
+      index={item.id}
+      onPress={handlePress(item.route)}
+      title={item.title}
+      subtitle={item.subtitle}
+    />
+  );
+
+  const renderList = () => <FlatList data={list} renderItem={renderItem} />;
 
   return <View>{renderList()}</View>;
 };

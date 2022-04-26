@@ -20,13 +20,25 @@ const App = () => {
       <Header />
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
-          options={{headerShown: false}}
+          options={{headerShown: false, animation: 'none'}}
           name="Start"
           component={Start}
         />
-        <Stack.Screen name="Main" component={Main} />
-        <Stack.Screen name="Cities" component={Cities} />
-        <Stack.Screen name="City" component={City} />
+        <Stack.Screen
+          name="Main"
+          component={Main}
+          options={{animation: 'none'}}
+        />
+        <Stack.Screen
+          name="Cities"
+          component={Cities}
+          options={{animation: 'none'}}
+        />
+        <Stack.Screen
+          name="City"
+          component={City}
+          options={{animation: 'none'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
