@@ -6,6 +6,7 @@ import {Start} from './pages/Start';
 import {Main} from './pages/Main';
 import {Cities} from './pages/Cities';
 import {City} from './pages/City';
+import {MyLocation} from './pages/MyLocation';
 
 export type RootStackParamList = {
   Start: undefined;
@@ -37,6 +38,11 @@ const App = () => {
         <Stack.Screen
           name="City"
           component={City}
+          options={{animation: 'none'}}
+        />
+        <Stack.Screen
+          name="MyLocation"
+          component={MyLocation}
           options={{animation: 'none'}}
         />
       </Stack.Navigator>

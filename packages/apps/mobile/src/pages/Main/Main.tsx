@@ -27,7 +27,7 @@ const list: Array<ListItemType> = [
     id: 2,
     title: 'Геопозиция',
     subtitle: 'Узнать погоду по моему местоположению',
-    route: 'Geoposition',
+    route: 'MyLocation',
   },
 ];
 
